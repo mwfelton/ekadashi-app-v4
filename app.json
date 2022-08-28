@@ -1,11 +1,10 @@
 {
   "expo": {
     "name": "ekadashi-app-v4",
-    "slug": "ekadashi-app-v4",
+    "slug": "snack-a33651a1-b2f0-4999-a937-669e7e4eaf8d",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
