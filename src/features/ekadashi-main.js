@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Text, View, StyleSheet} from 'react-native';
-const moment = require('moment');
-
+import React from 'react';
+import { Text, View, StyleSheet, Image} from 'react-native';
+import styled from 'styled-components/native'
 import ekaData from '../../assets/ekadashi-data-2022.json'
+const moment = require('moment');
 
 let dateArray = []
 ekaData.map(day => {dateArray.push(day.date)})
@@ -42,7 +42,7 @@ const ekaType = ekaData[ekadashiIndex].type
 export const EkadashiMain = () => {
   return (
   <View style={styles.container}>
-    <Image source={require('../../assets/vector-graphics-crescent-clip-art-portable-network-graphics-floral-design-png-favpng-Sjfhf0CsK4u7zPFiitgP3whDp.jpeg')} />    
+    <Image style={styles.image} source={require('../../assets/moon.png')} />    
     <Text> The next Ekadashi is in {daysToGo} days</Text>
     <Text>{nearestDate}</Text>
     <Text>{ekaMoonPhase}</Text>
@@ -54,5 +54,11 @@ export const EkadashiMain = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',  
+  },
+  image: {
+    width: 100,
+    height: 100,
   }
 })

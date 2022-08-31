@@ -1,21 +1,29 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
-import Constants from 'expo-constants';
 import { colors } from './src/utils/colors'
 import { EkadashiMain } from './src/features/ekadashi-main'
 import { SetReminder } from './src/features/set-reminder'
 
-// You can import from local files
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+const Tab = createBottomTabNavigator();
+
+const Settings = () => <Text>Settings</Text>;
+const Account  = () => <Text>Account</Text>;
+const Home  = () => <Text>Home</Text>;
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>MAIN APP PAGE</Text>
-      <EkadashiMain />
-      <SetReminder />
-    </SafeAreaView>
+
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="Home" component={EkadashiMain} />
+        <Tab.Screen name="Settings" component={Settings} />
+        <Tab.Screen name="Account" component={Account} />
+      </Tab.Navigator>
+    </NavigationContainer>
+   
   );
 }
 
