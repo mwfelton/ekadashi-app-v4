@@ -4,6 +4,16 @@ import styled from 'styled-components/native'
 import ekaData from '../../assets/ekadashi-data-2022.json'
 const moment = require('moment');
 
+const Title = styled.Text`
+  font-size: 40px;
+`;
+
+const Container = styled.View`
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center', 
+`;
+
 let dateArray = []
 ekaData.map(day => {dateArray.push(day.date)})
 const currentTime = new Date()
@@ -41,13 +51,13 @@ const ekaType = ekaData[ekadashiIndex].type
 
 export const EkadashiMain = () => {
   return (
-  <View style={styles.container}>
+  <Container style={styles.container}>
     <Image style={styles.image} source={require('../../assets/moon.png')} />    
-    <Text> The next Ekadashi is in {daysToGo} days</Text>
+    <Title> The next Ekadashi is in {daysToGo} days</Title>
     <Text>{nearestDate}</Text>
     <Text>{ekaMoonPhase}</Text>
     <Text>{ekaType}</Text>
-  </View>
+  </Container>
   );
 };
 
