@@ -1,17 +1,26 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image} from 'react-native';
+import { Text, View, Image} from 'react-native';
 import styled from 'styled-components/native'
-import ekaData from '../../assets/ekadashi-data-2022.json'
+import ekaData from '../../../../assets/ekadashi-data-2022.json'
 const moment = require('moment');
 
-const Title = styled.Text`
+const Title = styled(Text)`
   font-size: 40px;
 `;
 
-const Container = styled.View`
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center', 
+const Paragraph = styled(Text)`
+  font-size: 30px;
+`;
+
+const MainGraphic = styled(Image)`
+  width: 100;
+  height: 100;
+`;
+
+const Container = styled(View)`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 `;
 
 let dateArray = []
@@ -51,24 +60,12 @@ const ekaType = ekaData[ekadashiIndex].type
 
 export const EkadashiMain = () => {
   return (
-  <Container style={styles.container}>
-    <Image style={styles.image} source={require('../../assets/moon.png')} />    
+  <Container>
+    <MainGraphic source={require('../../../../assets/moon.png')} />    
     <Title> The next Ekadashi is in {daysToGo} days</Title>
-    <Text>{nearestDate}</Text>
-    <Text>{ekaMoonPhase}</Text>
-    <Text>{ekaType}</Text>
+    <Paragraph>{nearestDate}</Paragraph>
+    <Paragraph>{ekaMoonPhase}</Paragraph>
+    <Paragraph>{ekaType}</Paragraph>
   </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',  
-  },
-  image: {
-    width: 100,
-    height: 100,
-  }
-})

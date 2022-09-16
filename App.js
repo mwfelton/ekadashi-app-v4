@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { colors } from './src/utils/colors'
-import { EkadashiMain } from './src/features/ekadashi-main'
-import { SetReminder } from './src/features/set-reminder'
+// import { SetReminder } from './src/features/set-reminder'
+import { EkadashiScreen } from './src/features/ekadashi/screens/ekadashi.screen'
+
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -18,7 +19,7 @@ export default function App() {
 
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={EkadashiMain} />
+        <Tab.Screen name="Home" component={EkadashiScreen} />
         <Tab.Screen name="Settings" component={Settings} />
         <Tab.Screen name="Account" component={Account} />
       </Tab.Navigator>
