@@ -1,9 +1,9 @@
 import React from "react";
-import { View } from "react-native";
+import {View } from "react-native";
 import styled from 'styled-components/native'
 
 import { SafeArea } from '../../../utils/safe-area.component'
-import { EkadashiMain } from '../components/ekadashi.component'
+import { SignInComponent } from '../../sign-in/components/sign-in.component'
 
 const EkadashiDataContainer = styled(View)`
   flex: 1;
@@ -11,10 +11,10 @@ const EkadashiDataContainer = styled(View)`
   background-color: blue;
 `;
 
-export const EkadashiScreen = () => (
+export const SignInScreen = () => (
   <SafeArea>
     <EkadashiDataContainer>
-      <EkadashiMain />
+      <SignInComponent />
     </EkadashiDataContainer>
   </SafeArea>
 );

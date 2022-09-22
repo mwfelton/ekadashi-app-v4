@@ -52,6 +52,10 @@ const countDownFunction = (ekadashiDay) => {
     return Math.floor(diff / day)
 }
 
+const todayIsEkadashi = () => {
+  if 
+}
+
 const daysToGo = countDownFunction(nearestDate)
 
 const ekadashiIndex = dateArray.indexOf(nearestDate)

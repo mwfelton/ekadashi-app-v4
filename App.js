@@ -1,40 +1,48 @@
 import * as React from 'react';
-import { Text, View, StyleSheet, SafeAreaView, Platform, StatusBar } from 'react-native';
 import { colors } from './src/utils/colors'
 // import { SetReminder } from './src/features/set-reminder'
 import { EkadashiScreen } from './src/features/ekadashi/screens/ekadashi.screen'
-
+import { SettingsScreen } from './src/features/settings/screens/settings.screen'
+import { SignInScreen } from './src/features/sign-in/screens/sign-in.screen'
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
+
+import { ekadashiRequest } from "./src/services/ekadashi-data/ekadashi.service"
 
 const Tab = createBottomTabNavigator();
 
-const Settings = () => <Text>Settings</Text>;
-const Account  = () => <Text>Account</Text>;
-const Home  = () => <Text>Home</Text>;
+const TAB_ICON = {
+  Ekadashi: "moon-outline",
+  Settings: "ios-settings-outline",
+  Account: "person-outline",
+};
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+  return {
+    tabBarIcon: ({ size, color }) => (
+      <Ionicons name={iconName} size={size} color={color} />
+    ),
+  };
+};
 
 export default function App() {
   return (
-
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={EkadashiScreen} />
-        <Tab.Screen name="Settings" component={Settings} />
-        <Tab.Screen name="Account" component={Account} />
+      <Tab.Navigator
+        screenOptions={createScreenOptions}
+        tabBarOptions={{
+          tabBarActiveTintColor: 'black',
+          tabBarInactiveTintColor: 'gray',
+        }}
+      >
+        <Tab.Screen options={{headerShown: false}} name="Ekadashi" component={EkadashiScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Settings" component={SettingsScreen} />
+        <Tab.Screen options={{headerShown: false}} name="Account" component={SignInScreen} />
       </Tab.Navigator>
     </NavigationContainer>
-   
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-    backgroundColor: colors.blue
-  },
-  text: {
-    color: colors.pink
-  }
-});
