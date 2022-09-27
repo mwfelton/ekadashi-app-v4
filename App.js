@@ -8,7 +8,6 @@ import { SignInScreen } from './src/features/sign-in/screens/sign-in.screen'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-
 import { ekadashiRequest } from "./src/services/ekadashi-data/ekadashi.service"
 
 const Tab = createBottomTabNavigator();

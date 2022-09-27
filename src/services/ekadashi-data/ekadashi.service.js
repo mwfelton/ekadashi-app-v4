@@ -1,5 +1,15 @@
-import { mocks } from "./mock/index"
-const ekadashiRequest = (date = "2022") => {
-    console.log(mocks)
+import { mocks } from "./mock"
+export const ekadashiRequest = (date = "ddddd") => {
+    return new Promise((resolve, reject) => {
+        const mock = mocks[date];
+        if (!mock) {
+            reject("not found");
+        }
+        resolve(mock)
+    });
 };
-ekadashiRequest();
+ekadashiRequest().then((result) => {
+    console.log(result);
+}).catch((err) => {
+    console.log('error')
+});
