@@ -8,7 +8,6 @@ import { EkadashiContext } from '../../../services/ekadashi-data/ekadashi.contex
 
 const EkadashiDataContainer = styled(View)`
   flex: 1;
-  padding: 16px;
   background-color: blue;
 `;
 
