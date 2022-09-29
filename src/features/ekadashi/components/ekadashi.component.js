@@ -3,7 +3,6 @@ import { Text, View, Image} from 'react-native';
 import styled from 'styled-components/native'
 import ekaData from '../../../../assets/ekadashi-data-2022.json'
 import { EkadashiToday } from '../components/today.component'
-
 const moment = require('moment');
 
 const Title = styled(Text)`
