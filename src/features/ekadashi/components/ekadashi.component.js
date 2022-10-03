@@ -73,12 +73,12 @@ const MainGraphic = styled(Image)`
 // } 
 
 export const EkadashiMain = ({data}) => {
+
     let dateArray = []
-    ekaData.map(day => {dateArray.push(day.date)})
+    data.map(day => {dateArray.push(day.date)})
     const currentTime = new Date()
     let nearestDate;
 
-    console.log(dateArray)
     dateArray.forEach(date => {
         let diff = moment(date).diff(moment(currentTime), 'days');
         if (diff > 0) {
@@ -105,12 +105,11 @@ export const EkadashiMain = ({data}) => {
     }
     
     const daysToGo = countDownFunction(nearestDate)
-    console.log(nearestDate)
     const ekadashiIndex = dateArray.indexOf(nearestDate)
     console.log(ekadashiIndex)
-    const ekaMoonPhase = ekaData[ekadashiIndex].moonPhase
-    const ekaType = ekaData[ekadashiIndex].type
-    
+    // const ekaMoonPhase = data[ekadashiIndex].moonPhase
+    // console.log(ekaMoonPhase)
+    // const ekaType = data[ekadashiIndex].type
     const todayToString = currentTime.toDateString()
     let todayBoolean = false
     if (todayToString == nearestDate) {
@@ -123,8 +122,8 @@ export const EkadashiMain = ({data}) => {
     <Title> Ekadashi is in</Title>
     <Title> {daysToGo} days</Title>
     <Paragraph>{nearestDate}</Paragraph>
-    <Paragraph>{ekaMoonPhase} moon phase</Paragraph>
-    <Paragraph>{ekaType}</Paragraph>
+    {/* <Paragraph>{ekaMoonPhase} moon phase</Paragraph> */}
+    {/* <Paragraph>{ekaType}</Paragraph> */}
     { todayBoolean ? <EkadashiToday /> : null }
   </Container>
   );
