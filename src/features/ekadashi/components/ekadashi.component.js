@@ -107,6 +107,7 @@ export const EkadashiMain = ({data}) => {
     const daysToGo = countDownFunction(nearestDate)
     const ekadashiIndex = dateArray.indexOf(nearestDate)
     console.log(ekadashiIndex)
+    data.map
     // const ekaMoonPhase = data[ekadashiIndex].moonPhase
     // console.log(ekaMoonPhase)
     // const ekaType = data[ekadashiIndex].type
